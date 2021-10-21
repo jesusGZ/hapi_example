@@ -3,7 +3,6 @@
 const bootstrap = require('./lib/infrastructure/config/bootstrap');
 const createServer = require('./lib/infrastructure/webserver/server');
 
-// Start the server
 const start = async () => {
 
   try {
