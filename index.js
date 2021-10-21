@@ -4,7 +4,6 @@ const bootstrap = require('./src/infrastructure/config/bootstrap');
 const createServer = require('./src/infrastructure/server/server');
 
 const start = async () => {
-
   try {
     await bootstrap.init();
 
