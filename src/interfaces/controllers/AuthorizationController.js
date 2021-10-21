@@ -1,8 +1,8 @@
 'use strict';
 
 const Boom = require('@hapi/boom');
-const GetAccessToken = require('../../aplication/use_cases/GetAccessToken');
-const VerifyAccessToken = require('../../aplication/use_cases/VerifyAccessToken');
+const GetAccessToken = require('../../app/use_cases/GetAccessToken');
+const VerifyAccessToken = require('../../app/use_cases/VerifyAccessToken');
 
 module.exports = {
 

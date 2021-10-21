@@ -13,10 +13,10 @@ function buildBeans() {
   };
 
   if (environment.database.dialect === constants.SUPPORTED_DATABASE.MONGO) {
-    const UserRepositoryMongo = require('../repositories/UserRepositoryMongo');
+    const UserRepositoryMongo = require('../repositories/user.repository.mongo');
     beans.userRepository = new UserRepositoryMongo();
   } else if (environment.database.dialect === constants.SUPPORTED_DATABASE.POSTGRES) {
-    const UserRepositoryPostgreSQL= require('../repositories/UserRepositoryPostgreSQL');
+    const UserRepositoryPostgreSQL= require('../repositories/user.repository.postgre');
     beans.userRepository = new UserRepositoryPostgreSQL();
   } else {
     throw new Error('Server error');

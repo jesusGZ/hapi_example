@@ -1,6 +1,6 @@
 'use strict';
 
-const sequelize = require('../orm/sequelize/sequelize');
+const sequelize = require('../db/sequelize/sequelize');
 const User = require('../../domain/User');
 const UserRepository = require('../../domain/UserRepository');
 

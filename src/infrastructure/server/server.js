@@ -52,7 +52,7 @@ const createServer = async () => {
   ]);
 
   await server.register([
-    require('./oauth'),
+    require('./auth'),
     require('../../interfaces/routes/private'),
     require('../../interfaces/routes/users'),
   ]);

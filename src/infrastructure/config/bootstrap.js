@@ -9,11 +9,11 @@ module.exports = {
 
   async init() {
     if (environment.database.dialect === constants.SUPPORTED_DATABASE.MONGO) {
-      require('../orm/mongoose/mongoose');
+      require('../db/mongoose/mongoose');
     }
 
     if (environment.database.dialect === constants.SUPPORTED_DATABASE.POSTGRES) {
-      const sequelize = require('../orm/sequelize/sequelize');
+      const sequelize = require('../db/sequelize/sequelize');
       try {
         await sequelize.sync();
         console.log('La conexión a la base de datos se ha establecido correctamente.');

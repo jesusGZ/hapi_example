@@ -1,7 +1,7 @@
 'use strict';
 
-const bootstrap = require('./lib/infrastructure/config/bootstrap');
-const createServer = require('./lib/infrastructure/webserver/server');
+const bootstrap = require('./src/infrastructure/config/bootstrap');
+const createServer = require('./src/infrastructure/server/server');
 
 const start = async () => {
 

@@ -1,10 +1,10 @@
 'use strict';
 
 const Boom = require('@hapi/boom');
-const ListUsers = require('../../aplication/use_cases/ListUsers');
-const CreateUser = require('../../aplication/use_cases/CreateUser');
-const GetUser = require('../../aplication/use_cases/GetUser');
-const DeleteUser = require('../../aplication/use_cases/DeleteUser');
+const ListUsers = require('../../app/use_cases/ListUsers');
+const CreateUser = require('../../app/use_cases/CreateUser');
+const GetUser = require('../../app/use_cases/GetUser');
+const DeleteUser = require('../../app/use_cases/DeleteUser');
 
 module.exports = {
 

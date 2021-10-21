@@ -2,7 +2,7 @@
 
 const jwt = require('jsonwebtoken');
 
-const AccessTokenManager = require('../../aplication/security/AccessTokenManager');
+const AccessTokenManager = require('../../app/security/AccessTokenManager');
 
 const JWT_SECRET_KEY = 'shhhhhh!';
 
