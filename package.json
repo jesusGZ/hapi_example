@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "keywords": [],
-  "description": "",
+  "description": "Ejemplo de un servicio realizado con Node.js / Hapi.js que sigue los aspectos basicos de DDD",
   "dependencies": {
     "@hapi/boom": "^9.1.4",
     "@hapi/good": "^9.0.1",
@@ -19,6 +21,12 @@
     "@hapi/vision": "^6.1.0",
     "blipp": "^4.0.2",
     "dotenv": "^10.0.0",
-    "hapi-swagger": "^14.2.4"
+    "hapi-swagger": "^14.2.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.11",
+    "nodemon": "^2.0.14",
+    "request": "^2.88.2",
+    "require-directory": "^2.1.1",
+    "sequelize": "^6.7.0"
   }
 }
