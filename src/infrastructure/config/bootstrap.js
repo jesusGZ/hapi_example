@@ -6,7 +6,6 @@ const constants = require('./constants');
 const environment = require('./environment');
 
 module.exports = {
-
   async init() {
     if (environment.database.dialect === constants.SUPPORTED_DATABASE.MONGO) {
       require('../db/mongoose/mongoose');
@@ -21,6 +20,5 @@ module.exports = {
         console.error('No se puede conectar a la base de datos:', err);
       }
     }
-    
-  }
+  },
 };

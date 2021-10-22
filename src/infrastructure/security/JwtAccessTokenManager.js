@@ -7,7 +7,6 @@ const AccessTokenManager = require('../../app/security/AccessTokenManager');
 const JWT_SECRET_KEY = 'shhhhhh!';
 
 module.exports = class extends AccessTokenManager {
-
   generate(payload) {
     return jwt.sign(payload, JWT_SECRET_KEY);
   }
@@ -15,5 +14,4 @@ module.exports = class extends AccessTokenManager {
   decode(accessToken) {
     return jwt.verify(accessToken, JWT_SECRET_KEY);
   }
-
 };

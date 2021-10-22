@@ -9,10 +9,9 @@ const HapiSwagger = require('hapi-swagger');
 const Package = require('../../../package.json');
 
 const createServer = async () => {
-
   const server = Hapi.server({
     host: process.env.HOST || 'localhost',
-    port: process.env.PORT || 3000
+    port: process.env.PORT || 3000,
   });
 
   await server.register([
@@ -20,33 +19,35 @@ const createServer = async () => {
     Inert,
     Vision,
     {
+      // @ts-ignore
       plugin: HapiSwagger,
       options: {
         info: {
           title: 'Documentacion de APIs del servicio "hapi example"',
           version: Package.version,
         },
-      }
+      },
     },
     {
+      // @ts-ignore
       plugin: Good,
       options: {
         ops: {
-          interval: 1000 * 60
+          interval: 1000 * 60,
         },
         reporters: {
           myConsoleReporter: [
             {
               module: '@hapi/good-squeeze',
               name: 'Squeeze',
-              args: [{ ops: '*', log: '*', error: '*', response: '*' }]
+              args: [{ ops: '*', log: '*', error: '*', response: '*' }],
             },
             {
-              module: '@hapi/good-console'
+              module: '@hapi/good-console',
             },
-            'stdout'
-          ]
-        }
+            'stdout',
+          ],
+        },
       },
     },
   ]);
@@ -57,6 +58,7 @@ const createServer = async () => {
     require('../../interfaces/routes/users'),
   ]);
 
+  // @ts-ignore
   server.app.serviceLocator = require('../../infrastructure/config/service-locator');
 
   return server;

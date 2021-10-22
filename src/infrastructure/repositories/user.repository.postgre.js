@@ -5,7 +5,6 @@ const User = require('../../domain/User');
 const UserRepository = require('../../domain/UserRepository');
 
 module.exports = class extends UserRepository {
-
   constructor() {
     super();
     this.db = sequelize;
@@ -17,7 +16,18 @@ module.exports = class extends UserRepository {
     const seqUser = await this.model.create({ firstName, lastName, email, password });
     await seqUser.save();
 
-    return new User(seqUser.id, seqUser.firstName, seqUser.lastName, seqUser.email, seqUser.password);
+    return new User(
+      // @ts-ignore
+      seqUser.id,
+      // @ts-ignore
+      seqUser.firstName,
+      // @ts-ignore
+      seqUser.lastName,
+      // @ts-ignore
+      seqUser.email,
+      // @ts-ignore
+      seqUser.password
+    );
   }
 
   async merge(userEntity) {
@@ -28,32 +38,75 @@ module.exports = class extends UserRepository {
     const { firstName, lastName, email, password } = userEntity;
     await seqUser.update({ firstName, lastName, email, password });
 
-    return new User(seqUser.id, seqUser.firstName, seqUser.lastName, seqUser.email, seqUser.password);
+    return new User(
+      // @ts-ignore
+      seqUser.id,
+      // @ts-ignore
+      seqUser.firstName,
+      // @ts-ignore
+      seqUser.lastName,
+      // @ts-ignore
+      seqUser.email,
+      // @ts-ignore
+      seqUser.password
+    );
   }
 
   async remove(userId) {
     const seqUser = await this.model.findByPk(userId);
-    
+
     if (seqUser) return seqUser.destroy();
-    
+
     return false;
   }
 
   async get(userId) {
     const seqUser = await this.model.findByPk(userId);
-    return new User(seqUser.id, seqUser.firstName, seqUser.lastName, seqUser.email, seqUser.password);
+    return new User(
+      // @ts-ignore
+      seqUser.id,
+      // @ts-ignore
+      seqUser.firstName,
+      // @ts-ignore
+      seqUser.lastName,
+      // @ts-ignore
+      seqUser.email,
+      // @ts-ignore
+      seqUser.password
+    );
   }
 
   async getByEmail(userEmail) {
     const seqUser = await this.model.findOne({ where: { email: userEmail } });
-    return new User(seqUser.id, seqUser.firstName, seqUser.lastName, seqUser.email, seqUser.password);
+    return new User(
+      // @ts-ignore
+      seqUser.id,
+      // @ts-ignore
+      seqUser.firstName,
+      // @ts-ignore
+      seqUser.lastName,
+      // @ts-ignore
+      seqUser.email,
+      // @ts-ignore
+      seqUser.password
+    );
   }
 
   async find() {
     const seqUsers = await this.model.findAll();
     return seqUsers.map((seqUser) => {
-      return new User(seqUser.id, seqUser.firstName, seqUser.lastName, seqUser.email, seqUser.password);
+      return new User(
+        // @ts-ignore
+        seqUser.id,
+        // @ts-ignore
+        seqUser.firstName,
+        // @ts-ignore
+        seqUser.lastName,
+        // @ts-ignore
+        seqUser.email,
+        // @ts-ignore
+        seqUser.password
+      );
     });
   }
-
 };

@@ -5,7 +5,6 @@ const MongooseUser = require('../db/mongoose/schemas/User');
 const UserRepository = require('../../domain/UserRepository');
 
 module.exports = class extends UserRepository {
-
   constructor() {
     super();
   }
@@ -14,13 +13,30 @@ module.exports = class extends UserRepository {
     const { firstName, lastName, email, password } = userEntity;
     const mongooseUser = new MongooseUser({ firstName, lastName, email, password });
     await mongooseUser.save();
-    return new User(mongooseUser.id, mongooseUser.firstName, mongooseUser.lastName, mongooseUser.email, mongooseUser.password);
+    return new User(
+      mongooseUser.id,
+      mongooseUser.firstName,
+      mongooseUser.lastName,
+      mongooseUser.email,
+      mongooseUser.password
+    );
   }
 
   async merge(userEntity) {
     const { id, firstName, lastName, email, password } = userEntity;
-    const mongooseUser = MongooseUser.findByIdAndUpdate(id, { firstName, lastName, email, password });
-    return new User(mongooseUser[0].id, mongooseUser[0].firstName, mongooseUser[0].lastName, mongooseUser[0].email, mongooseUser[0].password);
+    const mongooseUser = MongooseUser.findByIdAndUpdate(id, {
+      firstName,
+      lastName,
+      email,
+      password,
+    });
+    return new User(
+      mongooseUser[0].id,
+      mongooseUser[0].firstName,
+      mongooseUser[0].lastName,
+      mongooseUser[0].email,
+      mongooseUser[0].password
+    );
   }
 
   async remove(userId) {
@@ -29,19 +45,36 @@ module.exports = class extends UserRepository {
 
   async get(userId) {
     const mongooseUser = await MongooseUser.findById(userId);
-    return new User(mongooseUser.id, mongooseUser.firstName, mongooseUser.lastName, mongooseUser.email, mongooseUser.password);
+    return new User(
+      mongooseUser.id,
+      mongooseUser.firstName,
+      mongooseUser.lastName,
+      mongooseUser.email,
+      mongooseUser.password
+    );
   }
 
   async getByEmail(userEmail) {
     const mongooseUser = await MongooseUser.find({ email: userEmail });
-    return new User(mongooseUser[0].id, mongooseUser[0].firstName, mongooseUser[0].lastName, mongooseUser[0].email, mongooseUser[0].password);
+    return new User(
+      mongooseUser[0].id,
+      mongooseUser[0].firstName,
+      mongooseUser[0].lastName,
+      mongooseUser[0].email,
+      mongooseUser[0].password
+    );
   }
 
   async find() {
     const mongooseUsers = await MongooseUser.find();
     return mongooseUsers.map((mongooseUser) => {
-      return new User(mongooseUser.id, mongooseUser.firstName, mongooseUser.lastName, mongooseUser.email, mongooseUser.password);
+      return new User(
+        mongooseUser.id,
+        mongooseUser.firstName,
+        mongooseUser.lastName,
+        mongooseUser.email,
+        mongooseUser.password
+      );
     });
   }
-
 };
