@@ -56,6 +56,9 @@ module.exports = class extends UserRepository {
 
   async getByEmail(userEmail) {
     const mongooseUser = await MongooseUser.find({ email: userEmail });
+
+    if (Object.keys(mongooseUser).length == 0) return new User(mongooseUser);
+
     return new User(
       mongooseUser[0].id,
       mongooseUser[0].firstName,
