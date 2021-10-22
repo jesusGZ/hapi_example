@@ -1,16 +1,34 @@
 version: '3'
 
 services:
+  web:
+    image: hapi-example
+    build: .
+    depends_on:
+      - mongo
+    ports:
+      - '10001:10001'
+    volumes:
+      - .:/opt/apphapi
+      - /opt/apphapi/node_modules
+
   postgres:
     image: postgres
-    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: hapi-example
+      POSTGRES_DATABASE: hapi-example
 
   mongo:
     image: mongo
-    restart: always
-    ports:
-      - '27017:27017'
+    expose:
+      - '27017'
+    volumes:
+      - mongodata:/data/db
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: hapi-example
       MONGO_INITDB_DATABASE: hapi-example
+
+volumes:
+  mongodata:
