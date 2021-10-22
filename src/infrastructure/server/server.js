@@ -1,16 +1,16 @@
-"use strict";
+'use strict';
 
-const Hapi = require("@hapi/hapi");
-const Good = require("@hapi/good");
-const Inert = require("@hapi/inert");
-const Vision = require("@hapi/vision");
-const Blipp = require("blipp");
-const HapiSwagger = require("hapi-swagger");
-const Package = require("../../../package.json");
+const Hapi = require('@hapi/hapi');
+const Good = require('@hapi/good');
+const Inert = require('@hapi/inert');
+const Vision = require('@hapi/vision');
+const Blipp = require('blipp');
+const HapiSwagger = require('hapi-swagger');
+const Package = require('../../../package.json');
 
 const createServer = async () => {
   const server = Hapi.server({
-    host: process.env.HOST || "172.21.0.4",
+    host: process.env.HOST || 'localhost',
     port: process.env.PORT || 3000,
   });
 
@@ -38,14 +38,14 @@ const createServer = async () => {
         reporters: {
           myConsoleReporter: [
             {
-              module: "@hapi/good-squeeze",
-              name: "Squeeze",
-              args: [{ ops: "*", log: "*", error: "*", response: "*" }],
+              module: '@hapi/good-squeeze',
+              name: 'Squeeze',
+              args: [{ ops: '*', log: '*', error: '*', response: '*' }],
             },
             {
-              module: "@hapi/good-console",
+              module: '@hapi/good-console',
             },
-            "stdout",
+            'stdout',
           ],
         },
       },
@@ -53,13 +53,13 @@ const createServer = async () => {
   ]);
 
   await server.register([
-    require("./auth"),
-    require("../../interfaces/routes/private"),
-    require("../../interfaces/routes/users"),
+    require('./auth'),
+    require('../../interfaces/routes/private'),
+    require('../../interfaces/routes/users'),
   ]);
 
   // @ts-ignore
-  server.app.serviceLocator = require("../../infrastructure/config/service-locator");
+  server.app.serviceLocator = require('../../infrastructure/config/service-locator');
 
   return server;
 };
