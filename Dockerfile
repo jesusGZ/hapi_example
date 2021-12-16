@@ -1,4 +1,4 @@
-FROM node:16.11
+FROM node:16.13.0-bullseye-slim
 
 LABEL "cl.apgca.appNode" = "Jesus Antonio Garcia Zurita"
 LABEL version = "1.0"
