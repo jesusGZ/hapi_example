@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:16.11
 
 LABEL "cl.apgca.appNode" = "Jesus Antonio Garcia Zurita"
 LABEL version = "1.0"
