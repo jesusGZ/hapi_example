@@ -28,7 +28,7 @@
     "@hapi/good-console": "^9.0.1",
     "@hapi/good-squeeze": "^6.0.0",
     "@hapi/hapi": "^20.2.1",
-    "@hapi/inert": "^6.0.4",
+    "@hapi/inert": "^6.0.5",
     "@hapi/vision": "^6.1.0",
     "blipp": "^4.0.2",
     "dotenv": "^10.0.0",
