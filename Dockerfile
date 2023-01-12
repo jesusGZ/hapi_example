@@ -1,4 +1,4 @@
-FROM node:16.13.1-bullseye-slim
+FROM node:gallium-bullseye-slim
 
 
 LABEL "cl.apgca.appNode" = "Jesus Antonio Garcia Zurita"
