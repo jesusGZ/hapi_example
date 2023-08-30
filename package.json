@@ -34,7 +34,7 @@
     "dotenv": "^10.0.0",
     "hapi-swagger": "^14.2.4",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.1.5",
+    "mongoose": "^6.12.0",
     "request": "^2.88.2",
     "require-directory": "^2.1.1",
     "sequelize": "^6.12.5"
